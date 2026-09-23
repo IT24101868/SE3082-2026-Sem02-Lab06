@@ -1,1 +1,26 @@
+I used my local pc for this which has 16 threads
 
+without collapse.
+
+so there are 2 loops in this code but the outer loop only go from 1 to 5 then even though there are 16 threads only 5 threads able to do the work and since the other loop is inside the outer loop the threads canot get them inside either so it also only run up to 10
+
+with collapse
+
+now the output look like this;
+
+Which means collapse made it possible for other threads to distribute their work load  
+
+r = 5, k = 2, thread # = 13
+r = 5, k = 3, thread # = 13
+r = 5, k = 4, thread # = 13
+r = 4, k = 6, thread # = 11
+r = 4, k = 7, thread # = 11
+r = 4, k = 8, thread # = 11
+r = 5, k = 5, thread # = 14
+r = 5, k = 6, thread # = 14
+r = 5, k = 7, thread # = 14
+r = 4, k = 9, thread # = 12
+r = 4, k = 10, thread # = 12
+r = 5, k = 1, thread # = 12
+r = 1, k = 1, thread # = 0
+r = 1, k = 2, thread # = 0
