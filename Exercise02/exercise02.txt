@@ -1,1 +1,30 @@
+When i compile and run it parallaly with (#pragma omp single) i got this output ( i used t2micro which has only 2 cores so i got only 2 working threads)
 
+thread # 1
+Inside Single # 1
+Exiting Single
+thread # 0
+Hi again from thread # 1
+Hi again from thread # 0
+
+So this time only one thread go inside the block when it execute that other thread wont do it 
+
+Another output 
+
+thread # 1
+Inside Single # 1
+Exiting Single
+thread # 0
+Hi again from thread # 1
+Hi again from thread # 0
+
+Same as the last one
+
+thread # 0
+Inside Single # 0
+Exiting Single
+thread # 1
+Hi again from thread # 0
+Hi again from thread # 1
+
+only this time thread 0 abled to go inside the section 
