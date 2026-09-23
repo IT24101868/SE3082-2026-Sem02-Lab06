@@ -1,1 +1,15 @@
+First i run this with as a serial 
+
+
+thisal@MSI:~/pc-lab5$ ./lab05_ex5_serial.o
+fib(35) = 9227465
+Time taken (serial): 0.080790 seconds
+
+then i used parallel
+
+fib(35) = 9227465
+Time taken (parallel): 25.779511 seconds
+thisal@MSI:~/pc-lab5$
+
+i run this on my machine i dont understand why parallel one got more time it maybe because of the lot of overheads 
 
