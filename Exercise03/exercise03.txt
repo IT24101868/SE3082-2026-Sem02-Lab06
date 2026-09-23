@@ -1,1 +1,25 @@
+i used same intance like in ex2
+and i got this outputs
 
+thread # 1
+Hi again from thread # 1
+thread # 0
+Inside Master # 0
+Exiting Master
+Hi again from thread # 0
+
+thread # 0
+Inside Master # 0
+Exiting Master
+Hi again from thread # 0
+thread # 1
+Hi again from thread # 1
+
+thread # 0
+thread # 1
+Hi again from thread # 1
+Inside Master # 0
+Exiting Master
+Hi again from thread # 0
+
+In this pragma master unlike in single the others dont wait to complete that code the thread whenever comes first it can jump to the other code part if it want it and also in the all tests i notices that thread 0 always execute the master part 
