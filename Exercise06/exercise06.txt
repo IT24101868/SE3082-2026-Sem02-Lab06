@@ -1,0 +1,20 @@
+
+I split the array into small fixed-size chunks((I used strip size = 8, since that matches how many numbers a CPU can process at once using SIMD instructions like AVX)(Instead of just looping through all 1,000,000 elements one by one)
+
+So the loop works in two parts:
+
+outer loop jumps through the array in steps of 8 (0, 8, 16, 24...)
+
+inner loop actually does the multiplication for those 8 elements
+
+I put #pragma omp parallel for on the outer loop, so instead of splitting individual elements, OpenMP splits whole strips across the threads. Each thread gets a chunk of strips to work on.
+
+One thing I noticed is this problem doesn't have a data race like the Pi calculation did in earlier labs. That's because each thread writes to a completely different part of array C — no two threads touch the same index, so there's no need for critical or atomic here.
+
+I think the reason strip size 8 matters is because it lines up with how the CPU can process data in bulk (SIMD), so the compiler can potentially turn 8 multiplications into a single instruction instead of doing them one at a time, which should make it faster.
+
+output:
+thisal@MSI:~/pc-lab5$ ./lab05_ex6.o
+Sample check: C[0] = 0.000000, C[999999] = 999999000000.000000
+Time taken (parallel, strip mining): 0.024446 seconds
+thisal@MSI:~/pc-lab5$
